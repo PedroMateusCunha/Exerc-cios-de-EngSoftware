@@ -8,6 +8,7 @@ Celsius.
 import java.util.Scanner;
 
 public class Exe004 {
+    
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
