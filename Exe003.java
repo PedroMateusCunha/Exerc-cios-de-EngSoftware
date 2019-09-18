@@ -5,23 +5,22 @@ o salário fixo e salário no final do mês.
 */
 
 import java.util.Scanner;
-public class Exe003
-{
-    static Scanner sc=new Scanner(System.in); 
-    public static void main(String[] args)
-    {
+
+public class Exe003 {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
         salario();
     }
 
-    static void salario()
-    {
-        System.out.print("[ ! ] Nome: ");
-        String nome=sc.nextLine();
+    static void salario() {
+        System.out.print("\n\n[ ! ] Nome: ");
+        String nome = sc.nextLine();
         System.out.print("[ ! ] Salário Inicial: ");
-        double salarioFixo=sc.nextDouble();
+        double salarioFixo = sc.nextDouble();
         System.out.print("[ ! ] Total de Vendas: ");
-        int totalDeVendas=sc.nextInt();
-        System.out.println("\n\n[ * ] "+nome+" / Salário: R$" +(salarioFixo+(totalDeVendas*0.15)));
+        int totalDeVendas = sc.nextInt();
+        System.out.println("\n\n[ *** ] Nome: " + nome + "\nSalário: R$" + (salarioFixo + (totalDeVendas * 0.15)));
     }
 
 }
