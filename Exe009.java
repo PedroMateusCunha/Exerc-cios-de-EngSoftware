@@ -20,7 +20,7 @@ public class Exe009 {
     }
 
     static void custoTotal() {
-        System.out.print("\n\n[ ! ] Insira o custo de fábrica: R$ ");
+        System.out.print("\n[ ! ] Insira o custo de fábrica: R$ ");
         double custoDeFabrica = sc.nextDouble();
         double impostos = custoDeFabrica+custoDeFabrica*0.45;
         double percentagemDoDistribuidor = impostos + impostos*0.28;
