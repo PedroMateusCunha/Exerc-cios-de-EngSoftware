@@ -1,5 +1,5 @@
 /**
-* Cada questao foi solucionada no formato de metodo.
+*Cada questao foi solucionada no formato de metodo.
 *Confira as questoes no PDF
 */
 
