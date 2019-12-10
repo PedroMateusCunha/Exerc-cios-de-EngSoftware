@@ -34,7 +34,7 @@ public class Agenda {
 		 ArrayList<ContatoBasico>todosContatos=new ArrayList<ContatoBasico>();
          for(int i=0;i<contatos.size();i++) {
         	 ContatoBasico contato=contatos.get(i);
-        	 if(contato.getDados().contains(palavraChave)) {
+        	 if(contato.toString().contains(palavraChave)) {
         		 todosContatos.add(contato);
         	 }
     	 }
@@ -42,10 +42,10 @@ public class Agenda {
          return (todosContatos.toArray(vetorContatos));
      }
 	 
-	 public String[] buscarTodos() {
+	 /*public String[] buscarTodos() {
 		 String[] vetorContatos=new String[contatos.size()];
 		 return (contatos.toArray(vetorContatos));
-	 }
+	 }*/
 	 
 	 public int getQuantidade(){
 		 return contatos.size();

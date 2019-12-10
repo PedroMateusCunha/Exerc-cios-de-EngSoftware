@@ -16,7 +16,10 @@ public class ContatoBasico{
         telefones=new ArrayList<Telefone>();
     }
     
-    public String getNome() { return nome; }
+    public String getNome() {
+    	return nome;
+    }
+    
     public void setNome(String nome) {
     	this.nome = nome;
     }
@@ -24,7 +27,8 @@ public class ContatoBasico{
     	telefones.add(tf);
     }
     
-    public String getDados(){
+    @Override
+    public String toString(){
     	String s=nome+"\n";
         for(Telefone t:telefones){
         	s+=t.getTelefone()+"\n";

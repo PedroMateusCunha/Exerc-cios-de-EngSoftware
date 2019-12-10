@@ -2,6 +2,7 @@ package interfaceGrafica;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,7 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import agenda.Agenda;
 import agenda.ContatoBasico;
@@ -24,7 +28,8 @@ public class Interface implements ActionListener {
 	private JTextField txtTelefone;
 	private JButton btnAdicionarContato;
 	private JButton btnPesquisar;
-
+	private Agenda agenda = new Agenda();
+	
 
 	public Interface() {
 		//Criação do Frame
@@ -52,17 +57,22 @@ public class Interface implements ActionListener {
 		txtTipo = new JTextField();
 		pnlAgenda.add(txtTipo);
 		
+		DefaultTableModel dflTabela = new DefaultTableModel();
+		dflTabela.addColumn("Nome");
+		dflTabela.addColumn("Telefone");
+		dflTabela.addColumn("Tipo");
+		
 		btnAdicionarContato = new JButton("Adicionar");
 		btnAdicionarContato.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Agenda agenda = new Agenda();
 				
 				ContatoBasico contato = new ContatoBasico();
 				contato.setNome(txtNome.getText());
 				contato.setTelefone(new Telefone(txtTelefone.getText(), txtTipo.getText()));
 				agenda.inserir(contato);
-				agenda.buscarGeral("Pedro");
+				dflTabela.insertRow(0, new Object[] {txtNome.getText(), txtTelefone.getText(), txtTipo.getText()});
+				
 			}
 		});
 		
@@ -72,13 +82,20 @@ public class Interface implements ActionListener {
 		btnPesquisar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				JFrame frmBusca = new JFrame("Agenda");
+				frmBusca.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+				frmBusca.setPreferredSize(new Dimension(300, 400));
+				
+				JTable tblTabela = new JTable(dflTabela);
+				frmBusca.getContentPane().add(new JScrollPane(tblTabela));
+
+				frmBusca.pack();
+				frmBusca.setVisible(true);
 				
 			}
 		});
+		
 		pnlAgenda.add(btnPesquisar);
-		
-
-		
 		
 		
 		//#Adição do painel ao frame#//
